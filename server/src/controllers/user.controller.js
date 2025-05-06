@@ -49,7 +49,7 @@ const registerUser = asyncHandler(async (req, res) => {
   //   check for file
   if (!req.files && !req.files.coverImage && req.files.coverImage.length === 0)
     throw new ApiError(400, "Image file is missing");
-  console.log("file : ", req.files?.coverImage);
+  // console.log("file : ", req.files?.coverImage);
 
   const coverImageLocalPath = req.files?.coverImage[0]?.path;
 
@@ -113,17 +113,7 @@ const loginUser = asyncHandler(async (req, res) => {
     .status(201)
     .cookie("accessToken", accessToken, options)
     .cookie("refreshToken", refreshToken, options)
-    .json(
-      new ApiResponse(
-        200,
-        {
-          user: loggedInUser,
-          accessToken,
-          refreshToken,
-        },
-        "User logged In Successfully"
-      )
-    );
+    .json(new ApiResponse(200, loggedInUser, "User logged In Successfully"));
 });
 
 const logoutUser = asyncHandler(async (req, res) => {
@@ -152,8 +142,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
-  const incomingRefreshToken =
-    req.cookies.refreshToken || req.body.refreshToken;
+  const incomingRefreshToken = req.cookies.refreshToken;
 
   if (!incomingRefreshToken) {
     throw new ApiError(401, "unauthorized request");
@@ -180,17 +169,19 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
       secure: true,
     };
 
-    const { accessToken, newRefreshToken } =
-      await generateAccessAndRefereshTokens(user._id);
+    const { accessToken, refreshToken } = await generateAccessAndRefereshTokens(
+      user._id
+    );
+    console.log(refreshToken);
 
     return res
       .status(200)
       .cookie("accessToken", accessToken, options)
-      .cookie("refreshToken", newRefreshToken, options)
+      .cookie("refreshToken", refreshToken, options)
       .json(
         new ApiResponse(
           200,
-          { accessToken, refreshToken: newRefreshToken },
+          { accessToken, refreshToken, user },
           "Access token refreshed"
         )
       );

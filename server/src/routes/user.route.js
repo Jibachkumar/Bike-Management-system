@@ -21,6 +21,6 @@ userRouter.route("/register").post(
 );
 userRouter.route("/login").post(loginUser);
 userRouter.route("/logout").post(verifyJWT, logoutUser);
-userRouter.route("/refresh-token").post(verifyJWT, refreshAccessToken);
+userRouter.route("/refresh-token").post(refreshAccessToken);
 
 export { userRouter };
