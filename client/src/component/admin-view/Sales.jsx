@@ -9,19 +9,19 @@ function Sales() {
           {[
             {
               title: "Total Sales",
-              value: "4500",
+              value: "50,000",
               percent: "20%",
               color: "text-red-600",
             },
             {
               title: "Total Expenses",
-              value: "3900",
+              value: "10,000",
               percent: "30%",
               color: "text-blue-600",
             },
             {
               title: "Products Sold",
-              value: "240",
+              value: "100",
               percent: "30%",
               color: "text-green-600",
             },
@@ -38,7 +38,7 @@ function Sales() {
                   <span>{item.percent}</span>
                 </div>
               </div>
-              <div className="text-3xl font-bold text-gray-900">
+              <div className="text-2xl font-bold text-gray-900">
                 {item.value}
               </div>
               <div className="text-xs text-blue-600 font-semibold mt-1 cursor-pointer select-none">

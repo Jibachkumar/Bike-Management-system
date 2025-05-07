@@ -20,9 +20,7 @@ function AdminLayout() {
             end
             className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded-r-lg ${
-                isActive
-                  ? "bg-purple-300 text-purple-800"
-                  : " hover:bg-purple-100"
+                isActive ? "bg-sky-200 text-purple-800" : " hover:bg-sky-50"
               }`
             }
           >
@@ -67,8 +65,8 @@ function AdminLayout() {
             className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded-r-lg ${
                 isActive
-                  ? "bg-purple-200 text-purple-700"
-                  : "text-purple-600 hover:bg-purple-50"
+                  ? "bg-sky-200 text-purple-700"
+                  : "text-purple-600 hover:bg-sky-50"
               }`
             }
           >
@@ -90,18 +88,21 @@ function AdminLayout() {
             className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded-r-lg ${
                 isActive
-                  ? "bg-green-200 text-green-800"
-                  : "text-green-700 hover:bg-green-50"
+                  ? "bg-sky-200 text-green-800"
+                  : "text-green-700 hover:bg-sky-50"
               }`
             }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="currentColor"
+              class="w-5 h-25"
               viewBox="0 0 24 24"
+              fill="currentColor"
             >
-              <path d="M3 17h2v-6H3v6zm4 0h2v-4H7v4zm4 0h2v-8h-2v8zm4 0h2v-2h-2v2zm4 0h2v-10h-2v10z" />
+              <rect x="3" y="4" width="12" height="1" rx="0" />
+              <rect x="3" y="9" width="14" height="1" rx="0" />
+              <rect x="3" y="14" width="16" height="1" rx="0" />
+              <rect x="3" y="19" width="18" height="1" rx="0" />
             </svg>
             Customer
           </NavLink>
@@ -110,8 +111,8 @@ function AdminLayout() {
             className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded-r-lg ${
                 isActive
-                  ? "bg-green-200 text-green-800"
-                  : "text-green-700 hover:bg-green-50"
+                  ? "bg-sky-200 text-[#393E46]"
+                  : "text-[#393E46] hover:bg-sky-50"
               }`
             }
           >
